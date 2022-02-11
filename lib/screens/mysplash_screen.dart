@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:uber_clone_driver/screens/login_screen.dart';
 import 'package:uber_clone_driver/screens/main_screen.dart';
 import 'package:uber_clone_driver/screens/signup_screen.dart';
 
@@ -17,7 +18,7 @@ class _MySplashScreenState extends State<MySplashScreen> {
   setTimer() {
     Timer(const Duration(seconds: 5), () async{
       Navigator.push(context, MaterialPageRoute(
-          builder: (context)=> const SignupScree()
+          builder: (context)=> const LoginScreen()
        )
       );
     });

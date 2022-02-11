@@ -1,23 +1,21 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:uber_clone_driver/constants.dart';
-import 'package:uber_clone_driver/screens/carinfo_screen.dart';
-import 'package:uber_clone_driver/screens/login_screen.dart';
+import 'package:uber_clone_driver/screens/signup_screen.dart';
 
+import '../constants.dart';
+import 'carinfo_screen.dart';
 
-class SignupScree extends StatefulWidget {
-  const SignupScree({Key? key}) : super(key: key);
+class LoginScreen extends StatefulWidget {
+  const LoginScreen({Key? key}) : super(key: key);
 
   @override
-  _SignupScreeState createState() => _SignupScreeState();
+  _LoginScreenState createState() => _LoginScreenState();
 }
 
-class _SignupScreeState extends State<SignupScree> {
+class _LoginScreenState extends State<LoginScreen> {
 
-  TextEditingController nameTextEditingController = TextEditingController();
-  TextEditingController phoneTextEditingController = TextEditingController();
   TextEditingController emailTextEditingController = TextEditingController();
   TextEditingController passwordTextEditingController = TextEditingController();
+
 
   @override
   Widget build(BuildContext context) {
@@ -35,15 +33,8 @@ class _SignupScreeState extends State<SignupScree> {
                 ),
                 const SizedBox(height: 10),
 
-                const Text('Register As a Driver', style: TextStyle(color: Colors.grey,
+                const Text('Login As a Driver', style: TextStyle(color: Colors.grey,
                     fontWeight: FontWeight.bold, fontSize: 26),
-                ),
-
-                TextField(
-                  controller: nameTextEditingController,
-                  style: const TextStyle(color: Colors.grey),
-                  decoration: kNormalTextInputDecoration.copyWith(labelText: 'Name',
-                  hintText: 'Name')
                 ),
 
                 TextField(
@@ -52,14 +43,6 @@ class _SignupScreeState extends State<SignupScree> {
                     style: const TextStyle(color: Colors.grey),
                     decoration: kNormalTextInputDecoration.copyWith(labelText: 'Email Address',
                         hintText: 'Email Address')
-                ),
-
-                TextField(
-                    controller: phoneTextEditingController,
-                    keyboardType: TextInputType.phone,
-                    style: const TextStyle(color: Colors.grey),
-                    decoration: kNormalTextInputDecoration.copyWith(labelText: 'Phone Number',
-                        hintText: 'Phone Number')
                 ),
 
                 TextField(
@@ -74,23 +57,22 @@ class _SignupScreeState extends State<SignupScree> {
                 const SizedBox(height: 20),
 
                 ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    primary: Colors.lightGreenAccent
-                  ),
-                    child: const Text('Create Account', style: TextStyle(fontSize: 16,
+                    style: ElevatedButton.styleFrom(
+                        primary: Colors.lightGreenAccent
+                    ),
+                    child: const Text('Login', style: TextStyle(fontSize: 16,
                         color: Colors.black54)),
                     onPressed: () {
-                        Navigator.push(context, MaterialPageRoute(
-                            builder: (context) => const CarInfoScreen()));
-                      }),
+
+                    }),
 
                 TextButton(
-                  child: const Text('Already have an account. Login Here', style: TextStyle(
-                      color: Colors.grey
+                  child: const Text('Don\'t have an account yet. Sign Up Here', style: TextStyle(
+                    color: Colors.grey
                   ),),
                   onPressed: () {
                     Navigator.push(context, MaterialPageRoute(builder: (context) =>
-                    const LoginScreen()));
+                    const SignupScree()));
                   },
                 ),
               ],
