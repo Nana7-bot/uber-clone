@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:uber_clone_driver/global/global.dart';
 import 'package:uber_clone_driver/screens/login_screen.dart';
 import 'package:uber_clone_driver/screens/main_screen.dart';
 import 'package:uber_clone_driver/screens/signup_screen.dart';
@@ -16,11 +17,17 @@ class MySplashScreen extends StatefulWidget {
 class _MySplashScreenState extends State<MySplashScreen> {
 
   setTimer() {
-    Timer(const Duration(seconds: 5), () async{
+    Timer(const Duration(seconds: 3), () async{
+
+  if(firebaseAuth.currentUser != null) {
+   Navigator.push(context, MaterialPageRoute(
+          builder: (context)=> const MainScreen()
+       ));
+  }else {
       Navigator.push(context, MaterialPageRoute(
           builder: (context)=> const LoginScreen()
-       )
-      );
+       ));
+       } 
     });
   }
 
